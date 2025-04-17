@@ -36,6 +36,13 @@ export default function AboutPage() {
     }
   };
 
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert('Thank you for your message! We will get back to you soon.');
+    // Reset form
+    (e.target as HTMLFormElement).reset();
+  };
+
   // Function to render gender icon
   const renderGenderIcon = (gender: string) => {
     if (gender === 'male') {
@@ -206,19 +213,18 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-              <Link href="mailto:vvce23cseaiml0074@vvce.ac.in">
-                <Button size="lg" className="gap-2">
-                  Contact Support <ArrowLeft className="h-4 w-4 rotate-180" />
-                </Button>
-              </Link>
+              <Button 
+                size="lg" 
+                className="gap-2"
+                onClick={() => {
+                  window.location.href = "mailto:vvce23cseaiml0074@vvce.ac.in";
+                }}
+              >
+                Contact Support <ArrowLeft className="h-4 w-4 rotate-180" />
+              </Button>
             </div>
             <div className="bg-card rounded-xl shadow-sm p-8 border">
-              <form className="space-y-6" onSubmit={(e) => {
-                e.preventDefault();
-                alert('Thank you for your message! We will get back to you soon.');
-                // Reset form
-                (e.target as HTMLFormElement).reset();
-              }}>
+              <form className="space-y-6" onSubmit={handleContactSubmit}>
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Your Name</label>
                   <input 

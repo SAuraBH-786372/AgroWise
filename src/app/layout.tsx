@@ -61,7 +61,7 @@ export default function RootLayout({
                     About
                   </Link>
                   <Link 
-                    href="/contact" 
+                    href="/about#contact-section" 
                     className="text-sm font-medium transition-colors hover:text-primary"
                   >
                     Contact
